@@ -87,6 +87,15 @@ app.post('/api/add-slot', async (req, res) => {
     }
 });
 
+app.get('/api/timetable/', async (req, res) => {
+    try {
+        const data = await Timetable.find();
+        res.json(data);
+    } catch (err) {
+        res.status(500).json({ message: "Data Failed To Fetch" });
+    }
+});
+
 
 app.get('/api/timetable/:dept', async (req, res) => {
     try {
